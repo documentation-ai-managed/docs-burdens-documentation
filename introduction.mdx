@@ -1,0 +1,114 @@
+---
+title: Welcome to Burdens Documentation
+description: An overview of Burdens Documentation, a platform for organizing and managing your project documentation efficiently.
+---
+
+## Overview
+
+Burdens Documentation provides a centralized platform where you organize, manage, and publish all your project documentation. You create structured spaces for APIs, user guides, and onboarding materials using MDX-powered pages with interactive components. Access version control, search, and collaboration features to keep your docs up-to-date and user-friendly.
+
+<Callout kind="info">
+Burdens uses the brand color `#3B82F6` for primary elements. Customize themes to match your project's identity.
+</Callout>
+
+## Key Benefits and Use Cases
+
+You gain efficiency with features like real-time previews, component-based layouts, and seamless integrations. Explore common use cases through these highlights.
+
+<Columns cols={3}>
+  <Card title="API Documentation" icon="database" href="/docs/api">
+    Document endpoints with `<Request>` and `<Response>` components. Include `<ParamField>` for parameters and live examples.
+  </Card>
+  <Card title="User Onboarding" icon="users" href="/docs/onboarding">
+    Guide users with `<Steps>` and `<Tabs>` for multi-platform instructions. Embed videos and interactive demos.
+  </Card>
+  <Card title="Changelogs" icon="git-branch" href="/docs/changelog">
+    Track releases using `<Update>` components. Tag changes as `feature`, `bugfix`, or `breaking`.
+  </Card>
+</Columns>
+
+## Getting Oriented with the Interface
+
+Start by navigating the sidebar for quick access to pages. Use the search bar to find topics instantly. Follow these steps to set up your first space.
+
+<Steps>
+  <Step title="Create a New Space" icon="plus">
+    Click the `+ New Space` button in the dashboard. Enter a name like `My Project Docs` and select a template.
+  </Step>
+  <Step title="Add Your First Page" icon="file-text">
+    Navigate to your space and select `New Page`. Choose `introduction.mdx` as the file name.
+  </Step>
+  <Step title="Preview and Publish" icon="eye">
+    Edit in the MDX editor, preview changes, then hit `Publish`. Share the live URL with your team.
+  </Step>
+</Steps>
+
+## Platform-Specific Setup
+
+Configure Burdens for your development environment using these tailored instructions.
+
+<Tabs>
+  <Tab title="npm" icon="package">
+    Install the CLI tool to manage docs locally.
+
+    <CodeGroup tabs="Install,Configure">
+```bash
+npm install -g @burdens/cli
+```
+```javascript
+// burdens.config.js
+module.exports = {
+  brandColor: '#3B82F6',
+  spaces: ['./docs'],
+};
+```
+    </CodeGroup>
+  </Tab>
+  <Tab title="Docker" icon="docker">
+    Run Burdens in a container for isolated previews.
+
+````dockerfile
+FROM node:18
+RUN npm install -g @burdens/cli
+WORKDIR /docs
+CMD ["burdens", "dev"]
+````
+
+  </Tab>
+</Tabs>
+
+## Brand Guidelines and Customization
+
+Follow these guidelines to maintain consistency. Customize your docs with the brand color `#3B82F6` and Lucide icons.
+
+<ExpandableGroup>
+  <Expandable title="Primary Theme Configuration" default-open="true">
+    Update your config file to apply the brand color across all pages.
+
+    ```javascript
+    // config/theme.js
+    export default {
+      colors: {
+        primary: '#3B82F6',
+        secondary: '#1D4ED8',
+      },
+      icons: {
+        default: 'book-open',
+      },
+    };
+    ```
+
+    Test changes in preview mode before publishing.
+  </Expandable>
+  <Expandable title="Icon Usage">
+    Select from 200+ Lucide icons like `zap`, `shield`, or `rocket`. Avoid custom SVGs for consistency.
+
+    ```jsx
+    <Card icon="zap" title="Fast Performance">
+      Optimized for quick loads.
+    </Card>
+    ```
+  </Expandable>
+</ExpandableGroup>
+
+You now have the tools to build comprehensive documentation. Explore advanced components like `<Columns>` for layouts and Mermaid diagrams for flows in subsequent pages.

@@ -1,0 +1,128 @@
+---
+title: Configuration Options
+description: Customize your documentation space with settings for appearance, permissions, and integrations.
+---
+
+## Overview
+
+Configure Burdens Documentation to match your brand and team needs. Access settings from the admin dashboard. Adjust theme colors, manage user access, handle data exports, and set up notifications.
+
+<Columns cols={2}>
+  <Card title="Theme & Branding" icon="palette" href="#theme-branding">
+    Customize colors and logos for a branded look.
+  </Card>
+  <Card title="Permissions" icon="shield" href="#permissions">
+    Define roles like admin, editor, and viewer.
+  </Card>
+  <Card title="Export/Import" icon="upload" href="#export-import">
+    Backup or migrate your documentation.
+  </Card>
+  <Card title="Notifications" icon="bell" href="#notifications">
+    Stay informed on changes and events.
+  </Card>
+</Columns>
+
+## Theme and Branding
+
+Set your primary color to `#3B82F6` for Burdens branding. Upload logos and adjust fonts via the settings panel.
+
+<Steps>
+  <Step title="Access Settings" icon="settings">
+    Navigate to **Admin > Configuration > Appearance**.
+  </Step>
+  <Step title="Update Colors" icon="palette">
+    Enter your hex code in the **Primary Color** field.
+  </Step>
+  <Step title="Upload Assets" icon="upload">
+    Add logo and favicon files (PNG, max 2MB).
+  </Step>
+  <Step title="Preview and Save" icon="eye">
+    Review changes and click **Apply**.
+  </Step>
+</Steps>
+
+<CodeGroup tabs="JSON,YAML">
+```json
+{
+  "theme": {
+    "primaryColor": "#3B82F6",
+    "logoUrl": "https://your-domain.com/logo.png",
+    "fontFamily": "Inter, sans-serif"
+  }
+}
+```
+```yaml
+theme:
+  primaryColor: "#3B82F6"
+  logoUrl: "https://your-domain.com/logo.png"
+  fontFamily: "Inter, sans-serif"
+```
+</CodeGroup>
+
+<Callout kind="tip">
+  Test theme changes in preview mode before publishing to avoid disrupting users.
+</Callout>
+
+## User Roles and Permissions
+
+Assign roles to control access. Admins manage everything, editors update content, and viewers read only.
+
+| Role     | Edit Pages | Manage Users | Delete Content | Export Data |
+|----------|------------|--------------|----------------|-------------|
+| Admin    | Yes        | Yes          | Yes            | Yes         |
+| Editor   | Yes        | No           | No             | Yes         |
+| Viewer   | No         | No           | No             | No          |
+
+<Tabs>
+  <Tab title="Admin" icon="shield">
+    Full access. Invite users and set global permissions.
+  </Tab>
+  <Tab title="Editor" icon="edit-3">
+    Create and update pages. Cannot delete or manage users.
+  </Tab>
+  <Tab title="Viewer" icon="eye">
+    Read-only access. Ideal for external collaborators.
+  </Tab>
+</Tabs>
+
+## Export and Import Options
+
+Export your site as Markdown or JSON. Import restores from backups.
+
+<CodeGroup tabs="CLI,API">
+```bash
+# Export to ZIP
+burdens export --format=markdown --output=docs-backup.zip
+
+# Import from ZIP
+burdens import docs-backup.zip --overwrite=false
+```
+```javascript
+// API endpoint example
+const response = await fetch('/api/export', {
+  method: 'POST',
+  headers: { 'Authorization': 'Bearer YOUR_TOKEN' },
+  body: JSON.stringify({ format: 'json' })
+});
+```
+</CodeGroup>
+
+## Notification Preferences
+
+Control email and in-app alerts for page updates, mentions, and invites.
+
+<ExpandableGroup>
+  <Expandable title="Email Settings" default-open="true">
+    Enable emails for:
+    - Page mentions (`@username`)
+    - Document shares
+    - Weekly summaries
+  </Expandable>
+  <Expandable title="In-App Notifications">
+    Toggle browser alerts for real-time updates.
+  </Expandable>
+</ExpandableGroup>
+
+<Callout kind="info">
+  Changes apply instantly. Review audit logs in **Admin > Activity** for permission updates.
+</Callout>

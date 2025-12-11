@@ -1,0 +1,120 @@
+---
+title: Changelog
+description: Track updates, new features, and improvements in Burdens Documentation.
+---
+
+## Overview
+
+Burdens Documentation releases updates regularly to enhance your documentation experience. You receive new features, performance improvements, and bug fixes with each version. Review this changelog to understand changes and plan your upgrades.
+
+<Callout kind="info">
+  Bookmark this page to stay informed about the latest releases. Subscribe to our RSS feed or join the community Discord for real-time notifications.
+</Callout>
+
+## Recent Releases
+
+<Update label="2024-11-01" description="v1.3.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added support for custom brand colors in themes, like `#3B82F6` for your projects.
+- Introduced `<Video>` and `<Iframe>` components for richer media embeds.
+
+## Improvements
+
+- Enhanced MDX parsing speed by 40% for larger documentation sites.
+- Updated Lucide icon library to the latest version with new icons like `cpu` and `globe`.
+
+## Bug Fixes
+
+- Fixed nested code block rendering issues in `<Tabs>` and `<Steps>`.
+- Resolved frontmatter parsing errors with special characters.
+
+</Update>
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- New `<Columns>` component for flexible grid layouts with up to 5 columns.
+- Added `tags` prop to `<Update>` for better categorization.
+
+## Improvements
+
+- Optimized image loading with `priority` and `width`/`height` attributes.
+- Improved accessibility with better ARIA labels on interactive components.
+
+## Bug Fixes
+
+- Corrected escaping for `{` and `}` in prose text.
+- Fixed self-closing component warnings in JSX validation.
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["breaking", "feature"]}>
+
+## Breaking Changes
+
+- Removed deprecated `<Mermaid>` component; use code blocks only.
+
+## New Features
+
+- Introduced `<ParamField>` and `<ResponseField>` for API documentation.
+- Added `<Request>` and `<Response>` components for endpoint examples.
+
+## Bug Fixes
+
+- Patched heading hierarchy enforcement starting with H2.
+- Fixed attribute quoting requirements for double quotes only.
+
+</Update>
+
+## Upcoming Roadmap
+
+<Columns cols={3}>
+  <Card title="AI Assistance" icon="bot" href="#">
+    Coming in v1.4.0: Auto-generate docs from code comments.
+  </Card>
+  <Card title="Collaboration" icon="users" href="#">
+    Real-time editing and version history in v1.5.0.
+  </Card>
+  <Card title="Advanced Search" icon="search" href="#">
+    Full-text search across your docs in v1.4.0.
+  </Card>
+</Columns>
+
+<Expandable title="Detailed Roadmap" default-open="false">
+
+Explore our public roadmap on GitHub. Key priorities include multi-language support, advanced theming, and plugin ecosystem expansion. Vote on features to influence development.
+
+</Expandable>
+
+## Upgrade Guide
+
+Follow these steps to update your Burdens Documentation site.
+
+<Steps>
+  <Step title="Backup" icon="database">
+    Create a backup of your current docs directory.
+  </Step>
+  <Step title="Update Package" icon="package">
+    <CodeGroup tabs="npm,yarn">
+```bash
+npm install burdens-docs@latest
+```
+```bash
+yarn add burdens-docs@latest
+```
+    </CodeGroup>
+  </Step>
+  <Step title="Review Changes" icon="book-open">
+    Check the migration guide for any breaking changes.
+  </Step>
+  <Step title="Deploy" icon="rocket">
+    Rebuild and deploy your site.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Test updates in a staging environment first. Use `npm run dev` to preview changes locally.
+</Callout>
